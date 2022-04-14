@@ -23,7 +23,7 @@ function player1:handleWalkLeft()
 
 		if self.stateTimer <= self.anim.walkBackward[i].lastFrame then
 			self.quadToDraw = self.anim.walkBackward[i].quad
-      --self.currentBodyBox = self.bodyBox.crouch[i]
+      --self.currentPushbox = self.bodyBox.crouch[i]
       --self.currentHurtBoxes = self.hurtBoxes.crouch[i]
 		end
 
@@ -48,7 +48,7 @@ function player1:handleWalkRight()
 
 		if self.stateTimer <= self.anim.walkForward[i].lastFrame then
 			self.quadToDraw = self.anim.walkForward[i].quad
-      --self.currentBodyBox = self.bodyBox.crouch[i]
+      --self.currentPushbox = self.bodyBox.crouch[i]
       --self.currentHurtBoxes = self.hurtBoxes.crouch[i]
 		end
 
@@ -69,7 +69,7 @@ function player1:handleCrouch()
 
 		if self.stateTimer <= self.anim.crouch[i].lastFrame then
 			self.quadToDraw = self.anim.crouch[i].quad
-      --self.currentBodyBox = self.bodyBox.crouch[i]
+      --self.currentPushbox = self.bodyBox.crouch[i]
       --self.currentHurtBoxes = self.hurtBoxes.crouch[i]
 		end
 
@@ -90,7 +90,7 @@ function player1:handleIdle()
 
 		if self.stateTimer <= self.anim.idle[i].lastFrame then
 			self.quadToDraw = self.anim.idle[i].quad
-      self.currentBodybox = self.bodybox.idle[i]
+      self.currentPushbox = self.pushbox.idle[i]
       self.currentHurtbox = self.hurtbox.idle[i]
 		end
 

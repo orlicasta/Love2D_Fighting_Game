@@ -10,12 +10,11 @@ function player1:load()
 	self.sideStanding = 'left'
 
 	self.stateTimer = 0
-	self.momentumTimer = 0
 
 	self.currentState = 'idle'
 	self.spriteToDraw = self.sprite.idle
   self.quadToDraw = self.anim.idle[1].quad
-	self.currentBodybox = self.bodybox.idle[1]
+	self.currentPushbox = self.pushbox.idle[1]
 	self.currentHurtbox = self.hurtbox.idle[1]
 
 end
@@ -37,7 +36,7 @@ function player1:draw()
 
 	love.graphics.push()
 		love.graphics.setColor(1, 1, 1, 1)
-	  love.graphics.rectangle("line", self.x + self.currentBodybox.x, self.y + self.currentBodybox.y, self.currentBodybox.width, self.currentBodybox.height)
+	  love.graphics.rectangle("line", self.x + self.currentPushbox.x, self.y + self.currentPushbox.y, self.currentPushbox.width, self.currentPushbox.height)
 	love.graphics.pop()
 
 	love.graphics.push()

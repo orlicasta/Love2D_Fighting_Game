@@ -1,6 +1,5 @@
 require('player1/buffer')
 require('player1/interpreter')
-require('player1/momentum')
 require('player1/player1')
 require('player1/frameData')
 require('player1/handler')
@@ -22,7 +21,6 @@ function love.load()
 
 	bufferPlayer1:load()
 	interpretPlayer1:load()
-	momentumPlayer1:load()
 	player1:load()
 
 end
@@ -51,11 +49,10 @@ function love.update(dt)
 
 
 		--Update player1 momentum
-		momentumPlayer1:update(1/60)
 		--Update player2 momentum
 
 		--Handle hitbox collision
-		--Handle bodybox collision
+		--Handle pushbox collision
 		--Handle Wall collision
 		--Handle ground collision
 

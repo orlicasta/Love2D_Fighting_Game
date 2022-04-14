@@ -5,12 +5,7 @@ function player1:stepState()
 		if self.currentState == 'walkLeft' then
 
 			--Check for exit conditions
-			if interpretPlayer1.targetState.crouch == true then
-				self.stateTimer = 1
-				self.currentState = 'crouch'
-
-			--Continue walkRight cycle
-			elseif interpretPlayer1.targetState.walkLeft == true then
+			if interpretPlayer1.targetState.walkLeft == true then
 				self:handleWalkLeft()
 				self.stateTimer = self.stateTimer + 1
 			--Otherwise return to idle state
@@ -25,12 +20,7 @@ function player1:stepState()
 		if self.currentState == 'walkRight' then
 
 			--Check for exit conditions
-			if interpretPlayer1.targetState.crouch == true then
-				self.stateTimer = 1
-				self.currentState = 'crouch'
-
-			--Continue walkRight cycle
-			elseif interpretPlayer1.targetState.walkRight == true then
+			if interpretPlayer1.targetState.walkRight == true then
 				self:handleWalkRight()
 				self.stateTimer = self.stateTimer + 1
 			--Otherwise return to idle state
@@ -41,26 +31,10 @@ function player1:stepState()
 
 		end
 
-	--Crouch state
-	if self.currentState == 'crouch' then
-
-		if interpretPlayer1.targetState.crouch == true then
-			self:handleCrouch()
-			self.stateTimer = self.stateTimer + 1
-		else
-			self.stateTimer = 1
-			self.currentState = 'idle'
-		end
-
-	end
-
 	--Idle state
 	if self.currentState == 'idle' then
 		--Check for exit condition
-		if interpretPlayer1.targetState.crouch == true then
-			self.stateTimer = 1
-			self.currentState = 'crouch'
-		elseif interpretPlayer1.targetState.walkLeft == true then
+		if interpretPlayer1.targetState.walkLeft == true then
 			self.stateTimer = 1
 			self.currentState = 'walkLeft'
 		elseif interpretPlayer1.targetState.walkRight == true then
@@ -72,7 +46,6 @@ function player1:stepState()
 		end
 
 	end
-
 
 
 end

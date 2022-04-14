@@ -13,7 +13,7 @@ function player1:loadFrameData()
 		walkBackward = {}
 	}
 
-	self.bodybox = {
+	self.pushbox = {
 		idle = {},
 		walkForward = {},
 		walkBackward = {}
@@ -37,11 +37,11 @@ function player1:loadFrameData()
 	self.anim.idle[3] = {quad = love.graphics.newQuad(256, -16, 128, 128, self.sprite.idle:getDimensions()), lastFrame = 30}
 	self.anim.idle[4] = {quad = love.graphics.newQuad(384, -16, 128, 128, self.sprite.idle:getDimensions()), lastFrame = 40}
 
-	--Idle bodybox
-	self.bodybox.idle[1] = {active = true, x = -10, y = -50, width = 20, height = 50}
-	self.bodybox.idle[2] = {active = true, x = -10, y = -50, width = 20, height = 50}
-	self.bodybox.idle[3] = {active = true, x = -10, y = -50, width = 20, height = 50}
-	self.bodybox.idle[4] = {active = true, x = -10, y = -50, width = 20, height = 50}
+	--Idle pushbox
+	self.pushbox.idle[1] = {active = true, x = -10, y = -50, width = 20, height = 50}
+	self.pushbox.idle[2] = {active = true, x = -10, y = -50, width = 20, height = 50}
+	self.pushbox.idle[3] = {active = true, x = -10, y = -50, width = 20, height = 50}
+	self.pushbox.idle[4] = {active = true, x = -10, y = -50, width = 20, height = 50}
 
 	--Idle hurtbox
 	self.hurtbox.idle[1] = {active = true}
