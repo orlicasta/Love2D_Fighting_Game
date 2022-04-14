@@ -48,9 +48,6 @@ function love.update(dt)
 		--Update player2 state
 
 
-		--Update player1 momentum
-		--Update player2 momentum
-
 		--Handle hitbox collision
 		--Handle pushbox collision
 		--Handle Wall collision

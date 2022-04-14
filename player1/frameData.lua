@@ -3,30 +3,35 @@ function player1:loadFrameData()
 
 	self.sprite = {
 		idle = love.graphics.newImage('player1/sprite/idle.png'),
+		crouch = love.graphics.newImage('player1/sprite/crouch.png'),
 		walkForward = love.graphics.newImage('player1/sprite/walkForward.png'),
 		walkBackward = love.graphics.newImage('player1/sprite/walkBackward.png')
 	}
 
 	self.anim = {
 		idle = {},
+		crouch = {},
 		walkForward = {},
 		walkBackward = {}
 	}
 
 	self.pushbox = {
 		idle = {},
+		crouch = {},
 		walkForward = {},
 		walkBackward = {}
 	}
 
 	self.hurtbox = {
 		idle = {},
+		crouch = {},
 		walkForward = {},
 		walkBackward = {}
 	}
 
 	self.hitbox = {
 		idle = {},
+		crouch = {},
 		walkForward = {},
 		walkBackward = {}
 	}
@@ -57,6 +62,9 @@ function player1:loadFrameData()
 	self.hurtbox.idle[3][2] = {x = -20, y = -80, width = 40, height = 80}
 	self.hurtbox.idle[4][1] = {x = -20, y = 0, width = 20, height = 20}
 	self.hurtbox.idle[4][2] = {x = -20, y = -80, width = 40, height = 80}
+
+	--crouch
+	self.anim.crouch[1] = {quad = love.graphics.newQuad(0, -16, 128, 128, self.sprite.crouch:getDimensions()), lastFrame = 1}
 
 	--WalkForward
 	self.anim.walkForward[1] = {quad = love.graphics.newQuad(0, -16, 128, 128, self.sprite.walkForward:getDimensions()), lastFrame = 5}

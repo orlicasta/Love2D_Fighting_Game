@@ -48,8 +48,7 @@ function player1:handleWalkRight()
 
 		if self.stateTimer <= self.anim.walkForward[i].lastFrame then
 			self.quadToDraw = self.anim.walkForward[i].quad
-      --self.currentPushbox = self.bodyBox.crouch[i]
-      --self.currentHurtBoxes = self.hurtBoxes.crouch[i]
+
 		end
 
 	end
