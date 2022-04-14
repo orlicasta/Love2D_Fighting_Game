@@ -4,6 +4,7 @@ require('player1/player1')
 require('player1/frameData')
 require('player1/handler')
 require('player1/state')
+require('player1/velocity')
 
 
 

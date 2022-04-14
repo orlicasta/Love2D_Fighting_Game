@@ -11,6 +11,11 @@ function player1:load()
 
 	self.stateTimer = 0
 
+	self.velocity = {
+		x = 0,
+		y = 0
+	}
+
 	self.currentState = 'idle'
 	self.spriteToDraw = self.sprite.idle
   self.quadToDraw = self.anim.idle[1].quad
@@ -23,6 +28,7 @@ end
 function player1:update(dt)
 
 	self:stepState()
+	self:updateVelocity()
 
 end
 
