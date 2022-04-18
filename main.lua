@@ -24,6 +24,9 @@ function love.load()
 	interpretPlayer1:load()
 	player1:load()
 
+	roundStartSFX = love.audio.newSource("common/sfx/rtkyaootw.wav", "static")
+
+
 end
 
 
