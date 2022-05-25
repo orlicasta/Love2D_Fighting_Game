@@ -11,6 +11,8 @@ function player1:load()
 
 	self.stateTimer = 0
 
+	self.gravity = 10
+
 	self.velocity = {
 		x = 0,
 		y = 0

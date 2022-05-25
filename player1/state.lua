@@ -1,6 +1,18 @@
 
 function player1:stepState()
 
+		--jumpNeutral
+		if self.currentState == 'jumpNeutral' then
+
+			if self.stateTimer == 16 then
+				self.currentState = 'idle'
+			else
+				self:handleJumpNeutral()
+				self.stateTimer = self.stateTimer + 1
+			end
+
+		end
+
 		--WalkLeft state
 		if self.currentState == 'walkLeft' then
 
@@ -8,6 +20,10 @@ function player1:stepState()
 			if interpretPlayer1.targetState.crouch == true then
 				self.stateTimer = 1
 				self.currentState = 'crouch'
+
+			elseif interpretPlayer1.targetState.jumpNeutral == true then
+				self.stateTimer = 1
+				self.currentState = 'jumpNeutral'
 
 			--Continue walkRight cycle
 			elseif interpretPlayer1.targetState.walkLeft == true then
@@ -28,6 +44,10 @@ function player1:stepState()
 			if interpretPlayer1.targetState.crouch == true then
 				self.stateTimer = 1
 				self.currentState = 'crouch'
+
+			elseif interpretPlayer1.targetState.jumpNeutral == true then
+				self.stateTimer = 1
+				self.currentState = 'jumpNeutral'
 
 			--Continue walkRight cycle
 			elseif interpretPlayer1.targetState.walkRight == true then
@@ -60,6 +80,9 @@ function player1:stepState()
 		if interpretPlayer1.targetState.crouch == true then
 			self.stateTimer = 1
 			self.currentState = 'crouch'
+		elseif interpretPlayer1.targetState.jumpNeutral == true then
+			self.stateTimer = 1
+			self.currentState = 'jumpNeutral'
 		elseif interpretPlayer1.targetState.walkLeft == true then
 			self.stateTimer = 1
 			self.currentState = 'walkLeft'

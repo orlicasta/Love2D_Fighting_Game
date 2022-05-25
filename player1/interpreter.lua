@@ -49,7 +49,7 @@ function interpretPlayer1:update(dt)
 		self.targetState.crouch = false
 	end
 
-  --Check for neutralJump
+  --Check for jumpNeutral
   if bufferPlayer1.buffer[1].up == true and bufferPlayer1.buffer[1].left == false and bufferPlayer1.buffer[1].right == false
   and bufferPlayer1.buffer[2].left == false and bufferPlayer1.buffer[2].right == false then
     self.targetState.jumpNeutral = true

@@ -5,6 +5,25 @@ function player1:handleSideStanding()
 
 end
 
+function player1:handleJumpNeutral()
+
+  --Movement
+  self.velocity.y = -10
+
+  --Animation
+  self.spriteToDraw = self.sprite.jump
+  for i = #self.anim.jump, 1, -1 do
+
+		if self.stateTimer <= self.anim.jump[i].lastFrame then
+			self.quadToDraw = self.anim.jump[i].quad
+      --self.currentPushbox = self.bodyBox.crouch[i]
+      --self.currentHurtBoxes = self.hurtBoxes.crouch[i]
+		end
+
+	end
+
+end
+
 function player1:handleWalkLeft()
 
 

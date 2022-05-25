@@ -26,6 +26,7 @@ function love.load()
 
 	roundStartSFX = love.audio.newSource("common/sfx/rtkyaootw.wav", "static")
 
+	--roundStartSFX:play()
 
 end
 
