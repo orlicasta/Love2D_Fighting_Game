@@ -8,7 +8,7 @@ end
 function player1:handleJumpNeutral()
 
   --Movement
-  self.velocity.y = -10
+  self.velocity.y = -20
 
   --Animation
   self.spriteToDraw = self.sprite.jump

@@ -11,7 +11,13 @@ function player1:load()
 
 	self.stateTimer = 0
 
-	self.gravity = 10
+	self.gravity = 20
+
+	--jumpStatus
+	--0 is grounded
+	--1 is prejump
+	--2 is in-air
+	self.jumpStatus = 0
 
 	self.velocity = {
 		x = 0,

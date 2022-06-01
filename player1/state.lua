@@ -4,12 +4,20 @@ function player1:stepState()
 		--jumpNeutral
 		if self.currentState == 'jumpNeutral' then
 
-			if self.stateTimer == 16 then
+			self:handleJumpNeutral()
+
+			self.currentState = 'jumping'
+
+
+		end
+
+		if self.currentState == 'jumping' then
+
+			if self.y >= background:getHeight() - GROUND_HEIGHT then
 				self.currentState = 'idle'
-			else
-				self:handleJumpNeutral()
-				self.stateTimer = self.stateTimer + 1
 			end
+
+			self.stateTimer = self.stateTimer + 1
 
 		end
 
