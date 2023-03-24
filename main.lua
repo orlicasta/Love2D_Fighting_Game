@@ -1,79 +1,56 @@
-require('player1/buffer')
-require('player1/interpreter')
-require('player1/player1')
-require('player1/frameData')
-require('player1/handler')
-require('player1/state')
-require('player1/velocity')
-
-
+require('player1')
+require('player2')
 
 function love.load()
 
-	GAME_SPEED = 1/60
-	D_TOTAL = 0
+  dtotal = 0
 
-	background = love.graphics.newImage('common/sprite/background.png')
-	GROUND_HEIGHT = 100
+  gameScale = {}
+	gameScale.x = love.graphics.getWidth() / 1920
+	gameScale.y = love.graphics.getHeight() / 1080
 
-	gameScale = {}
-	gameScale.x = love.graphics.getWidth() / background:getWidth()
-	gameScale.y = love.graphics.getHeight() / background:getHeight()
+  wf = require 'lib/windfield'
 
-	bufferPlayer1:load()
-	interpretPlayer1:load()
-	player1:load()
+  world = wf.newWorld()
 
-	roundStartSFX = love.audio.newSource("common/sfx/rtkyaootw.wav", "static")
+  ground = {}
+  ground.collider = world:newRectangleCollider(0, 1080, 1920, 100)
+  ground.collider:setType('static')
 
-	--roundStartSFX:play()
+  wall = {}
+  wall.collider = world:newRectangleCollider(0, 1080 / 2, 1, 1080)
+  wall.collider:setType('static')
+
+  player1:load()
+  player1.collider =  world:newRectangleCollider(1920 / 4, 1080 / 2, 50, 100)
+  player1.collider:setFixedRotation(true)
+  --player1.collider:setRestitution(1)
+
+  player2:load()
+  player2.collider =  world:newRectangleCollider(1920 / 1.5, 1080 / 2, 50, 100)
+  player2.collider:setFixedRotation(true)
 
 end
 
 
 function love.update(dt)
+  dtotal = dtotal + dt
+	if dtotal >= 1/60 then
 
-	D_TOTAL = D_TOTAL + dt
-	if D_TOTAL >= GAME_SPEED then
+    player1:update(1/60)
+    player2:update(1/60)
 
-		if love.keyboard.isDown('f') then
-			love.window.setFullscreen(true)
-			gameScale.x = love.graphics.getWidth() /background:getWidth()
-			gameScale.y = love.graphics.getHeight() / background:getHeight()
-		end
-		if love.keyboard.isDown('g') then
-			love.window.setFullscreen(false)
-			gameScale.x = love.graphics.getWidth() /background:getWidth()
-			gameScale.y = love.graphics.getHeight() / background:getHeight()
-		end
+    world:update(1/60)
 
-		bufferPlayer1:update(1/60)
-		interpretPlayer1:update(1/60)
-		player1:update(1/60)
-		--Update player2 state
-
-
-		--Handle hitbox collision
-		--Handle pushbox collision
-		--Handle Wall collision
-		--Handle ground collision
-
-		D_TOTAL = math.min(GAME_SPEED, D_TOTAL - GAME_SPEED)
-	end
-
+    dtotal = math.min(1/60, dtotal - 1/60)
+  end
 end
-
 
 function love.draw()
 
-	love.graphics.push()
-		love.graphics.scale(gameScale.x, gameScale.y)
-		love.graphics.draw(background)
-	love.graphics.pop()
-
-	love.graphics.push()
-		love.graphics.scale(gameScale.x, gameScale.y)
-		player1:draw()
-	love.graphics.pop()
+  love.graphics.push()
+    love.graphics.scale(gameScale.x, gameScale.y)
+    world:draw()
+  love.graphics.pop()
 
 end
