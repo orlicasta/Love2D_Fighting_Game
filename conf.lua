@@ -1,9 +1,12 @@
 function love.conf(t)
 
-  t.title = "Frame Data Workflow Engine"
+  t.title = "physics test"
+  t.version = "11.3"
+
+  t.console = true
 
   t.window.width = 1280
   t.window.height = 720
-  t.window.vync = 0
+  t.window.vsync = 0
 
 end
